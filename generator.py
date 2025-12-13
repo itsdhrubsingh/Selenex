@@ -1,7 +1,6 @@
 import json
 import os
 import sys
-import time
 from selenium.webdriver.common.by import By
 from urllib.parse import urlparse
 
@@ -131,11 +130,13 @@ class CodeGenerator:
             
             if path_part:
                 self.steps.append(f"""
-    # Wait for navigation to {path_part}
+    # Detected URL change to {path_part}
+    logger.info("Waiting for navigation to {path_part}...")
     try:
-        WebDriverWait(driver, 20).until(EC.url_contains("{path_part}"))
+        WebDriverWait(driver, 15).until(EC.url_contains("{path_part}"))
+        logger.info("Navigation check passed.")
     except:
-        print("Warning: Navigation to {path_part} timed out.")
+        logger.warning("Navigation timeout - verify if URL is correct.")
 """)
         
         self.last_url = current_url
@@ -146,105 +147,9 @@ class CodeGenerator:
         except:
             return ""
 
-    def _process_event(self, event):
-        action = event.get("action")
-        context = event.get("elementContext", {})
-        tag = context.get("tag", "").upper()
-        attrs = context.get("attributes", {})
-        el_type = attrs.get("type", "").lower() if attrs.get("type") else ""
-        
-        if action == "click":
-            strategy, value = self.selector_engine.get_best_selector(event)
-            return f"""
-    # Click {value}
-    try:
-        element = WebDriverWait(driver, 15).until(
-            EC.presence_of_element_located(({strategy}, "{value}"))
-        )
-        driver.execute_script("arguments[0].scrollIntoView({{block: 'center'}});", element)
-        
-        try:
-            WebDriverWait(driver, 5).until(EC.element_to_be_clickable(({strategy}, "{value}")))
-            ActionChains(driver).move_to_element(element).click().perform()
-        except:
-            driver.execute_script("arguments[0].click();", element)
-            
-    except Exception as e:
-        print(f"Error clicking {value}: {{e}}")
-"""
-
-        elif action == "input":
-            val = event.get("value", "")
-            strategy, locator = self.selector_engine.get_best_selector(event)
-            
-            # Select/Dropdown
-            if tag == "SELECT":
-                 return f"""
-    # Select '{val}' in {locator}
-    try:
-        element = WebDriverWait(driver, 15).until(
-            EC.presence_of_element_located(({strategy}, "{locator}"))
-        )
-        driver.execute_script("arguments[0].scrollIntoView({{block: 'center'}});", element)
-        try:
-            Select(element).select_by_value("{val}")
-        except:
-            Select(element).select_by_visible_text("{val}")
-    except Exception as e:
-        print(f"Error selecting {val} in {locator}: {{e}}")
-"""
-
-            # Radio/Checkbox
-            if el_type in ["radio", "checkbox"]:
-                return f"    # Skipped input for {el_type} (handled by click)"
-
-            # Standard Text Input
-            return f"""
-    # Type '{val}' into {locator}
-    try:
-        element = WebDriverWait(driver, 15).until(
-            EC.presence_of_element_located(({strategy}, "{locator}"))
-        )
-        driver.execute_script("arguments[0].scrollIntoView({{block: 'center'}});", element)
-        element.clear()
-        element.send_keys("{val}")
-    except Exception as e:
-        print(f"Error inputting text {locator}: {{e}}")
-"""
-
-        elif action == "scroll":
-            x = event.get("x", 0)
-            y = event.get("y", 0)
-            if x == 0 and y == 0:
-                return f"    # Skipped scroll(0,0)"
-            return f"""
-    driver.execute_script('window.scrollTo({x}, {y})')
-"""
-
-        elif action == "keydown":
-            key = event.get("key")
-            selenium_key = self._map_key(key)
-            if not selenium_key: return f"    # Unsupported key: {key}"
-            
-            return f"""
-    try:
-        ActionChains(driver).send_keys(Keys.{selenium_key}).perform()
-    except:
-        driver.switch_to.active_element.send_keys(Keys.{selenium_key})
-"""
-
-        return f"    # Unknown action: {action}"
-
-    def _map_key(self, key):
-        key_map = {
-            "Enter": "ENTER",
-            "Tab": "TAB",
-            "Escape": "ESCAPE"
-        }
-        return key_map.get(key)
-
     def _generate_header(self, start_url):
         return f"""
+import logging
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -254,20 +159,136 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 
+# Configure Logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("automation.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger()
+
 def run_test():
-    print("Starting Test...")
+    logger.info("Starting Automation Script")
     options = webdriver.ChromeOptions()
     options.add_argument("--start-maximized")
     driver = webdriver.Chrome(options=options)
     
+    logger.info("Navigating to start URL: {start_url}")
     driver.get("{start_url}")
 """
 
+    def _process_event(self, event):
+        action = event.get("action")
+        timestamp = event.get("timestamp")
+        context = event.get("elementContext", {})
+        tag = context.get("tag", "").upper()
+        attrs = context.get("attributes", {})
+        el_type = attrs.get("type", "").lower() if attrs.get("type") else ""
+        
+        if action == "click":
+            strategy, value = self.selector_engine.get_best_selector(event)
+            return f"""
+    try:
+        logger.info("Clicking element: {value}")
+        element = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located(({strategy}, "{value}"))
+        )
+        # 1. Scroll into view (JS)
+        driver.execute_script("arguments[0].scrollIntoView({{block: 'center'}});", element)
+        time.sleep(0.5)
+        
+        # 2. Try ActionChains (Robust Mouse Move + Click)
+        try:
+            WebDriverWait(driver, 5).until(EC.element_to_be_clickable(({strategy}, "{value}")))
+            ActionChains(driver).move_to_element(element).click().perform()
+        except:
+            logger.warning("Standard click failed, attempting JS Force Click.")
+            driver.execute_script("arguments[0].click();", element)
+            
+    except Exception as e:
+        logger.error(f"Failed to click {value}: {{e}}")
+"""
+
+        elif action == "input":
+            # Smart handling based on element type
+            val = event.get("value", "")
+            strategy, locator = self.selector_engine.get_best_selector(event)
+            
+            # Case 1: Select/Dropdown
+            if tag == "SELECT":
+                 return f"""
+    logger.info("Selecting value '{{val}}' in dropdown: {locator}")
+    try:
+        element = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located(({strategy}, "{locator}"))
+        )
+        driver.execute_script("arguments[0].scrollIntoView({{block: 'center'}});", element)
+        Select(element).select_by_value("{val}") # Try value first
+    except:
+        try:
+            Select(element).select_by_visible_text("{val}") # Fallback to text
+        except Exception as e:
+            logger.error(f"Failed to select {val} in {locator}: {{e}}")
+"""
+
+            # Case 2: Radio or Checkbox
+            # user 'input' event on these means "value changed", but the click usually handles the interaction.
+            # Sending keys to a radio button is invalid.
+            if el_type in ["radio", "checkbox"]:
+                return f"    # Skipping 'input' action for {el_type} (handled by click)"
+
+            # Case 3: Standard Text Input
+            return f"""
+    logger.info("Inputting text into: {locator}")
+    try:
+        element = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located(({strategy}, "{locator}"))
+        )
+        driver.execute_script("arguments[0].scrollIntoView({{block: 'center'}});", element)
+        time.sleep(0.2)
+        element.clear()
+        element.send_keys("{val}")
+    except Exception as e:
+        logger.error(f"Failed to input text {locator}: {{e}}")
+"""
+
+        elif action == "scroll":
+            x = event.get("x", 0)
+            y = event.get("y", 0)
+            if x == 0 and y == 0:
+                return f"    # Skipping captured scroll (0,0)"
+            return f"""
+    logger.info("Scrolling to ({x}, {y})")
+    driver.execute_script('window.scrollTo({x}, {y})')
+"""
+
+        elif action == "keydown":
+            key = event.get("key")
+            selenium_key = self._map_key(key)
+            if not selenium_key: return f"    # Unsupported key: {key}"
+            
+            return f"""
+    logger.info("Sending Key: {key}")
+    try:
+        ActionChains(driver).send_keys(Keys.{selenium_key}).perform()
+    except:
+        driver.switch_to.active_element.send_keys(Keys.{selenium_key})
+"""
+
+        return f"    # Unknown action: {action}"
+
     def _generate_footer(self):
         return """
-    print("Test Completed Successfully")
+    logger.info("Test Completed Successfully")
     time.sleep(2)
     driver.quit()
+
+if __name__ == "__main__":
+    run_test()
+"""
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
@@ -283,4 +304,3 @@ if __name__ == "__main__":
         print(f"Generated test script: {out}")
     else:
         print("session.json not found.")
-"""

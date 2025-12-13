@@ -81,7 +81,7 @@ def run_test():
         driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
         time.sleep(0.2)
         element.clear()
-        element.send_keys("India")
+        element.send_keys("United Arab Emirates")
     except Exception as e:
         logger.error(f"Failed to input text autocomplete: {e}")
 
@@ -113,12 +113,12 @@ def run_test():
             EC.presence_of_element_located((By.ID, "dropdown-class-example"))
         )
         driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
-        Select(element).select_by_value("option1") # Try value first
+        Select(element).select_by_value("option2") # Try value first
     except:
         try:
-            Select(element).select_by_visible_text("option1") # Fallback to text
+            Select(element).select_by_visible_text("option2") # Fallback to text
         except Exception as e:
-            logger.error(f"Failed to select option1 in dropdown-class-example: {e}")
+            logger.error(f"Failed to select option2 in dropdown-class-example: {e}")
 
 
     try:
@@ -143,9 +143,9 @@ def run_test():
 
 
     try:
-        logger.info("Clicking element: checkBoxOption2")
+        logger.info("Clicking element: checkBoxOption3")
         element = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.NAME, "checkBoxOption2"))
+            EC.presence_of_element_located((By.NAME, "checkBoxOption3"))
         )
         # 1. Scroll into view (JS)
         driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
@@ -153,37 +153,16 @@ def run_test():
         
         # 2. Try ActionChains (Robust Mouse Move + Click)
         try:
-            WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.NAME, "checkBoxOption2")))
+            WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.NAME, "checkBoxOption3")))
             ActionChains(driver).move_to_element(element).click().perform()
         except:
             logger.warning("Standard click failed, attempting JS Force Click.")
             driver.execute_script("arguments[0].click();", element)
             
     except Exception as e:
-        logger.error(f"Failed to click checkBoxOption2: {e}")
+        logger.error(f"Failed to click checkBoxOption3: {e}")
 
     # Skipping 'input' action for checkbox (handled by click)
-
-    try:
-        logger.info("Clicking element: name")
-        element = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.ID, "name"))
-        )
-        # 1. Scroll into view (JS)
-        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
-        time.sleep(0.5)
-        
-        # 2. Try ActionChains (Robust Mouse Move + Click)
-        try:
-            WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.ID, "name")))
-            ActionChains(driver).move_to_element(element).click().perform()
-        except:
-            logger.warning("Standard click failed, attempting JS Force Click.")
-            driver.execute_script("arguments[0].click();", element)
-            
-    except Exception as e:
-        logger.error(f"Failed to click name: {e}")
-
 
     logger.info("Test Completed Successfully")
     time.sleep(2)
