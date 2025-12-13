@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial;
+            width: 220px;
+            padding: 10px;
+        }
+
+        button {
+            width: 100%;
+            margin-bottom: 8px;
+            padding: 8px;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .btn-start {
+            background-color: #28a745;
+        }
+
+        .btn-stop {
+            background-color: #dc3545;
+        }
+
+        .btn-export {
+            background-color: #007bff;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 style="text-align: center; margin-top: 5px;">SeleneX</h3>
+    <button id="start" class="btn-start">Start Recording</button>
+    <button id="stop" class="btn-stop" disabled>Stop & Save</button>
+    <button id="export" class="btn-export">Export JSON</button>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+2025-12-13 18:54:47,064 - INFO - Starting Automation Script
+2025-12-13 18:54:50,458 - INFO - Navigating to start URL: https://rahulshettyacademy.com/AutomationPractice/
+2025-12-13 18:54:51,721 - INFO - Clicking element: radioButton
+2025-12-13 18:54:52,985 - INFO - Clicking element: autocomplete
+2025-12-13 18:54:53,920 - INFO - Inputting text into: autocomplete
+2025-12-13 18:54:54,369 - INFO - Clicking element: dropdown-class-example
+2025-12-13 18:54:55,574 - INFO - Selecting value '{val}' in dropdown: dropdown-class-example
+2025-12-13 18:54:55,798 - INFO - Clicking element: dropdown-class-example
+2025-12-13 18:54:57,005 - INFO - Clicking element: checkBoxOption2
+2025-12-13 18:54:57,935 - INFO - Clicking element: name
+2025-12-13 18:54:58,886 - INFO - Test Completed Successfully
