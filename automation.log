@@ -30,3 +30,51 @@
 2025-12-14 01:51:28,738 - INFO - Clicking element: dropdown-class-example
 2025-12-14 01:51:29,644 - INFO - Clicking element: checkBoxOption3
 2025-12-14 01:51:30,497 - INFO - Test Completed Successfully
+2025-12-14 01:57:52,344 - INFO - Starting Automation Script
+2025-12-14 01:57:53,964 - INFO - Navigating to start URL: https://rahulshettyacademy.com/AutomationPractice/
+2025-12-14 01:57:55,362 - INFO - Clicking element: input[type='radio'][value='radio2']
+2025-12-14 01:57:56,371 - INFO - Clicking element: autocomplete
+2025-12-14 01:57:57,224 - INFO - Inputting text into: autocomplete
+2025-12-14 01:57:57,573 - INFO - Clicking element: dropdown-class-example
+2025-12-14 01:57:58,447 - INFO - Selecting value '{val}' in dropdown: dropdown-class-example
+2025-12-14 01:57:58,560 - INFO - Clicking element: dropdown-class-example
+2025-12-14 01:57:59,442 - INFO - Clicking element: checkBoxOption3
+2025-12-14 01:58:00,342 - INFO - Test Completed Successfully
+2025-12-14 02:00:31,451 - INFO - Starting Automation Script
+2025-12-14 02:00:32,815 - INFO - Navigating to start URL: https://rahulshettyacademy.com/AutomationPractice/
+2025-12-14 02:00:33,772 - INFO - Clicking element: input[type='radio'][value='radio2']
+2025-12-14 02:00:34,826 - INFO - Clicking element: autocomplete
+2025-12-14 02:00:35,686 - INFO - Inputting text into: autocomplete
+2025-12-14 02:00:36,055 - INFO - Clicking element: dropdown-class-example
+2025-12-14 02:00:36,939 - INFO - Selecting value '{val}' in dropdown: dropdown-class-example
+2025-12-14 02:00:37,045 - INFO - Clicking element: dropdown-class-example
+2025-12-14 02:00:37,941 - INFO - Clicking element: checkBoxOption3
+2025-12-14 02:00:38,794 - INFO - Test Completed Successfully
+2025-12-14 02:01:01,828 - INFO - Starting Automation Script
+2025-12-14 02:01:03,137 - INFO - Navigating to start URL: https://rahulshettyacademy.com/AutomationPractice/
+2025-12-14 02:01:03,946 - INFO - Clicking element: input[type='radio'][value='radio2']
+2025-12-14 02:01:04,970 - INFO - Clicking element: autocomplete
+2025-12-14 02:01:05,884 - INFO - Inputting text into: autocomplete
+2025-12-14 02:01:06,291 - INFO - Clicking element: dropdown-class-example
+2025-12-14 02:01:07,184 - INFO - Selecting value '{val}' in dropdown: dropdown-class-example
+2025-12-14 02:01:07,304 - INFO - Clicking element: dropdown-class-example
+2025-12-14 02:01:08,193 - INFO - Clicking element: checkBoxOption3
+2025-12-14 02:01:09,057 - INFO - Test Completed Successfully
+2025-12-14 02:03:15,632 - INFO - Starting Automation Script
+2025-12-14 02:03:17,209 - INFO - Navigating to start URL: https://rahulshettyacademy.com/AutomationPractice/
+2025-12-14 02:03:18,262 - INFO - Clicking element: input[type='radio'][value='radio2']
+2025-12-14 02:03:19,478 - INFO - Clicking element: autocomplete
+2025-12-14 02:03:20,484 - INFO - Inputting text into: autocomplete
+2025-12-14 02:03:21,059 - INFO - Clicking element: dropdown-class-example
+2025-12-14 02:03:21,956 - INFO - Selecting value '{val}' in dropdown: dropdown-class-example
+2025-12-14 02:03:22,076 - INFO - Clicking element: dropdown-class-example
+2025-12-14 02:03:22,975 - INFO - Clicking element: checkBoxOption3
+2025-12-14 02:03:23,916 - INFO - Test Completed Successfully
+2025-12-14 02:04:44,092 - INFO - Starting Automation Script
+2025-12-14 02:04:45,746 - INFO - Navigating to start URL: https://rahulshettyacademy.com/AutomationPractice/
+2025-12-14 02:04:47,095 - INFO - Clicking element: input[type='radio'][value='radio1']
+2025-12-14 02:04:48,283 - INFO - Clicking element: dropdown-class-example
+2025-12-14 02:04:49,363 - INFO - Selecting value '{val}' in dropdown: dropdown-class-example
+2025-12-14 02:04:49,557 - INFO - Clicking element: dropdown-class-example
+2025-12-14 02:04:50,566 - INFO - Clicking element: checkBoxOption2
+2025-12-14 02:04:51,471 - INFO - Test Completed Successfully

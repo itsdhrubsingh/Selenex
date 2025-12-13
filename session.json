@@ -13,7 +13,7 @@
         "role": null,
         "target": null,
         "type": "radio",
-        "value": "radio2"
+        "value": "radio1"
       },
       "parentChain": [
         {
@@ -53,7 +53,7 @@
       "url": "https://rahulshettyacademy.com/AutomationPractice/",
       "visibleTextHash": "-5383491b"
     },
-    "timestamp": 1765657194022
+    "timestamp": 1765658024626
   },
   {
     "action": "input",
@@ -69,7 +69,7 @@
         "role": null,
         "target": null,
         "type": "radio",
-        "value": "radio2"
+        "value": "radio1"
       },
       "parentChain": [
         {
@@ -109,23 +109,23 @@
       "url": "https://rahulshettyacademy.com/AutomationPractice/",
       "visibleTextHash": "-5383491b"
     },
-    "timestamp": 1765657194025,
-    "value": "radio2"
+    "timestamp": 1765658024635,
+    "value": "radio1"
   },
   {
     "action": "click",
     "elementContext": {
       "attributes": {
         "ariaExpanded": null,
-        "class": "inputs ui-autocomplete-input",
+        "class": "",
         "dataTestId": null,
         "href": null,
-        "id": "autocomplete",
-        "name": null,
-        "placeholder": "Type to Select Countries",
+        "id": "dropdown-class-example",
+        "name": "dropdown-class-example",
+        "placeholder": null,
         "role": null,
         "target": null,
-        "type": "text",
+        "type": null,
         "value": null
       },
       "parentChain": [
@@ -135,8 +135,8 @@
           "tag": "FIELDSET"
         },
         {
-          "class": "cen-left-align",
-          "id": "select-class-example",
+          "class": "cen-right-align",
+          "id": null,
           "tag": "DIV"
         },
         {
@@ -153,6 +153,175 @@
           "class": null,
           "id": null,
           "tag": "HTML"
+        }
+      ],
+      "tag": "SELECT",
+      "text": "Select\nOption1\nOption2\nOption3"
+    },
+    "fingerprint": {
+      "domSignature": [
+        "header"
+      ],
+      "title": "Practice Page",
+      "url": "https://rahulshettyacademy.com/AutomationPractice/",
+      "visibleTextHash": "-5383491b"
+    },
+    "timestamp": 1765658027949
+  },
+  {
+    "action": "input",
+    "elementContext": {
+      "attributes": {
+        "ariaExpanded": null,
+        "class": "",
+        "dataTestId": null,
+        "href": null,
+        "id": "dropdown-class-example",
+        "name": "dropdown-class-example",
+        "placeholder": null,
+        "role": null,
+        "target": null,
+        "type": null,
+        "value": null
+      },
+      "parentChain": [
+        {
+          "class": null,
+          "id": null,
+          "tag": "FIELDSET"
+        },
+        {
+          "class": "cen-right-align",
+          "id": null,
+          "tag": "DIV"
+        },
+        {
+          "class": "block large-row-spacer",
+          "id": null,
+          "tag": "DIV"
+        },
+        {
+          "class": null,
+          "id": null,
+          "tag": "BODY"
+        },
+        {
+          "class": null,
+          "id": null,
+          "tag": "HTML"
+        }
+      ],
+      "tag": "SELECT",
+      "text": "Select\nOption1\nOption2\nOption3"
+    },
+    "fingerprint": {
+      "domSignature": [
+        "header"
+      ],
+      "title": "Practice Page",
+      "url": "https://rahulshettyacademy.com/AutomationPractice/",
+      "visibleTextHash": "-5383491b"
+    },
+    "timestamp": 1765658029542,
+    "value": "option3"
+  },
+  {
+    "action": "click",
+    "elementContext": {
+      "attributes": {
+        "ariaExpanded": null,
+        "class": "",
+        "dataTestId": null,
+        "href": null,
+        "id": "dropdown-class-example",
+        "name": "dropdown-class-example",
+        "placeholder": null,
+        "role": null,
+        "target": null,
+        "type": null,
+        "value": null
+      },
+      "parentChain": [
+        {
+          "class": null,
+          "id": null,
+          "tag": "FIELDSET"
+        },
+        {
+          "class": "cen-right-align",
+          "id": null,
+          "tag": "DIV"
+        },
+        {
+          "class": "block large-row-spacer",
+          "id": null,
+          "tag": "DIV"
+        },
+        {
+          "class": null,
+          "id": null,
+          "tag": "BODY"
+        },
+        {
+          "class": null,
+          "id": null,
+          "tag": "HTML"
+        }
+      ],
+      "tag": "SELECT",
+      "text": "Select\nOption1\nOption2\nOption3"
+    },
+    "fingerprint": {
+      "domSignature": [
+        "header"
+      ],
+      "title": "Practice Page",
+      "url": "https://rahulshettyacademy.com/AutomationPractice/",
+      "visibleTextHash": "-5383491b"
+    },
+    "timestamp": 1765658029543
+  },
+  {
+    "action": "click",
+    "elementContext": {
+      "attributes": {
+        "ariaExpanded": null,
+        "class": "",
+        "dataTestId": null,
+        "href": null,
+        "id": "checkBoxOption2",
+        "name": "checkBoxOption2",
+        "placeholder": null,
+        "role": null,
+        "target": null,
+        "type": "checkbox",
+        "value": "option2"
+      },
+      "parentChain": [
+        {
+          "class": null,
+          "id": null,
+          "tag": "LABEL"
+        },
+        {
+          "class": null,
+          "id": null,
+          "tag": "FIELDSET"
+        },
+        {
+          "class": "right-align",
+          "id": "checkbox-example",
+          "tag": "DIV"
+        },
+        {
+          "class": "block large-row-spacer",
+          "id": null,
+          "tag": "DIV"
+        },
+        {
+          "class": null,
+          "id": null,
+          "tag": "BODY"
         }
       ],
       "tag": "INPUT",
@@ -166,33 +335,38 @@
       "url": "https://rahulshettyacademy.com/AutomationPractice/",
       "visibleTextHash": "-5383491b"
     },
-    "timestamp": 1765657195685
+    "timestamp": 1765658031144
   },
   {
     "action": "input",
     "elementContext": {
       "attributes": {
         "ariaExpanded": null,
-        "class": "inputs ui-autocomplete-input",
+        "class": "",
         "dataTestId": null,
         "href": null,
-        "id": "autocomplete",
-        "name": null,
-        "placeholder": "Type to Select Countries",
+        "id": "checkBoxOption2",
+        "name": "checkBoxOption2",
+        "placeholder": null,
         "role": null,
         "target": null,
-        "type": "text",
-        "value": null
+        "type": "checkbox",
+        "value": "option2"
       },
       "parentChain": [
+        {
+          "class": null,
+          "id": null,
+          "tag": "LABEL"
+        },
         {
           "class": null,
           "id": null,
           "tag": "FIELDSET"
         },
         {
-          "class": "cen-left-align",
-          "id": "select-class-example",
+          "class": "right-align",
+          "id": "checkbox-example",
           "tag": "DIV"
         },
         {
@@ -204,11 +378,6 @@
           "class": null,
           "id": null,
           "tag": "BODY"
-        },
-        {
-          "class": null,
-          "id": null,
-          "tag": "HTML"
         }
       ],
       "tag": "INPUT",
@@ -220,291 +389,9 @@
       ],
       "title": "Practice Page",
       "url": "https://rahulshettyacademy.com/AutomationPractice/",
-      "visibleTextHash": "-64ecfb18"
+      "visibleTextHash": "-5383491b"
     },
-    "timestamp": 1765657201315,
-    "value": "United Arab Emirates"
-  },
-  {
-    "action": "click",
-    "elementContext": {
-      "attributes": {
-        "ariaExpanded": null,
-        "class": "",
-        "dataTestId": null,
-        "href": null,
-        "id": "dropdown-class-example",
-        "name": "dropdown-class-example",
-        "placeholder": null,
-        "role": null,
-        "target": null,
-        "type": null,
-        "value": null
-      },
-      "parentChain": [
-        {
-          "class": null,
-          "id": null,
-          "tag": "FIELDSET"
-        },
-        {
-          "class": "cen-right-align",
-          "id": null,
-          "tag": "DIV"
-        },
-        {
-          "class": "block large-row-spacer",
-          "id": null,
-          "tag": "DIV"
-        },
-        {
-          "class": null,
-          "id": null,
-          "tag": "BODY"
-        },
-        {
-          "class": null,
-          "id": null,
-          "tag": "HTML"
-        }
-      ],
-      "tag": "SELECT",
-      "text": "Select\nOption1\nOption2\nOption3"
-    },
-    "fingerprint": {
-      "domSignature": [
-        "header"
-      ],
-      "title": "Practice Page",
-      "url": "https://rahulshettyacademy.com/AutomationPractice/",
-      "visibleTextHash": "-64ecfb18"
-    },
-    "timestamp": 1765657201526
-  },
-  {
-    "action": "input",
-    "elementContext": {
-      "attributes": {
-        "ariaExpanded": null,
-        "class": "",
-        "dataTestId": null,
-        "href": null,
-        "id": "dropdown-class-example",
-        "name": "dropdown-class-example",
-        "placeholder": null,
-        "role": null,
-        "target": null,
-        "type": null,
-        "value": null
-      },
-      "parentChain": [
-        {
-          "class": null,
-          "id": null,
-          "tag": "FIELDSET"
-        },
-        {
-          "class": "cen-right-align",
-          "id": null,
-          "tag": "DIV"
-        },
-        {
-          "class": "block large-row-spacer",
-          "id": null,
-          "tag": "DIV"
-        },
-        {
-          "class": null,
-          "id": null,
-          "tag": "BODY"
-        },
-        {
-          "class": null,
-          "id": null,
-          "tag": "HTML"
-        }
-      ],
-      "tag": "SELECT",
-      "text": "Select\nOption1\nOption2\nOption3"
-    },
-    "fingerprint": {
-      "domSignature": [
-        "header"
-      ],
-      "title": "Practice Page",
-      "url": "https://rahulshettyacademy.com/AutomationPractice/",
-      "visibleTextHash": "-64ecfb18"
-    },
-    "timestamp": 1765657203210,
+    "timestamp": 1765658031145,
     "value": "option2"
-  },
-  {
-    "action": "click",
-    "elementContext": {
-      "attributes": {
-        "ariaExpanded": null,
-        "class": "",
-        "dataTestId": null,
-        "href": null,
-        "id": "dropdown-class-example",
-        "name": "dropdown-class-example",
-        "placeholder": null,
-        "role": null,
-        "target": null,
-        "type": null,
-        "value": null
-      },
-      "parentChain": [
-        {
-          "class": null,
-          "id": null,
-          "tag": "FIELDSET"
-        },
-        {
-          "class": "cen-right-align",
-          "id": null,
-          "tag": "DIV"
-        },
-        {
-          "class": "block large-row-spacer",
-          "id": null,
-          "tag": "DIV"
-        },
-        {
-          "class": null,
-          "id": null,
-          "tag": "BODY"
-        },
-        {
-          "class": null,
-          "id": null,
-          "tag": "HTML"
-        }
-      ],
-      "tag": "SELECT",
-      "text": "Select\nOption1\nOption2\nOption3"
-    },
-    "fingerprint": {
-      "domSignature": [
-        "header"
-      ],
-      "title": "Practice Page",
-      "url": "https://rahulshettyacademy.com/AutomationPractice/",
-      "visibleTextHash": "-64ecfb18"
-    },
-    "timestamp": 1765657203211
-  },
-  {
-    "action": "click",
-    "elementContext": {
-      "attributes": {
-        "ariaExpanded": null,
-        "class": "",
-        "dataTestId": null,
-        "href": null,
-        "id": "checkBoxOption3",
-        "name": "checkBoxOption3",
-        "placeholder": null,
-        "role": null,
-        "target": null,
-        "type": "checkbox",
-        "value": "option3"
-      },
-      "parentChain": [
-        {
-          "class": null,
-          "id": null,
-          "tag": "LABEL"
-        },
-        {
-          "class": null,
-          "id": null,
-          "tag": "FIELDSET"
-        },
-        {
-          "class": "right-align",
-          "id": "checkbox-example",
-          "tag": "DIV"
-        },
-        {
-          "class": "block large-row-spacer",
-          "id": null,
-          "tag": "DIV"
-        },
-        {
-          "class": null,
-          "id": null,
-          "tag": "BODY"
-        }
-      ],
-      "tag": "INPUT",
-      "text": ""
-    },
-    "fingerprint": {
-      "domSignature": [
-        "header"
-      ],
-      "title": "Practice Page",
-      "url": "https://rahulshettyacademy.com/AutomationPractice/",
-      "visibleTextHash": "-64ecfb18"
-    },
-    "timestamp": 1765657204793
-  },
-  {
-    "action": "input",
-    "elementContext": {
-      "attributes": {
-        "ariaExpanded": null,
-        "class": "",
-        "dataTestId": null,
-        "href": null,
-        "id": "checkBoxOption3",
-        "name": "checkBoxOption3",
-        "placeholder": null,
-        "role": null,
-        "target": null,
-        "type": "checkbox",
-        "value": "option3"
-      },
-      "parentChain": [
-        {
-          "class": null,
-          "id": null,
-          "tag": "LABEL"
-        },
-        {
-          "class": null,
-          "id": null,
-          "tag": "FIELDSET"
-        },
-        {
-          "class": "right-align",
-          "id": "checkbox-example",
-          "tag": "DIV"
-        },
-        {
-          "class": "block large-row-spacer",
-          "id": null,
-          "tag": "DIV"
-        },
-        {
-          "class": null,
-          "id": null,
-          "tag": "BODY"
-        }
-      ],
-      "tag": "INPUT",
-      "text": ""
-    },
-    "fingerprint": {
-      "domSignature": [
-        "header"
-      ],
-      "title": "Practice Page",
-      "url": "https://rahulshettyacademy.com/AutomationPractice/",
-      "visibleTextHash": "-64ecfb18"
-    },
-    "timestamp": 1765657204794,
-    "value": "option3"
   }
 ]

@@ -35,15 +35,19 @@ class SelectorEngine:
         if el_id and not self._is_dynamic_id(el_id):
             return "By.ID", el_id
 
-        # 3. Silver: Input Name
+        # 3. Silver: Radio Button Value
+        if tag == "INPUT" and attributes.get("type") == "radio" and attributes.get("value"):
+            return "By.CSS_SELECTOR", f"input[type='radio'][value='{attributes['value']}']"
+
+        # 4. Silver: Input Name
         if tag in ["INPUT", "SELECT", "TEXTAREA"] and name:
             return "By.NAME", name
 
-        # 4. Silver: Href
+        # 5. Silver: Href
         if tag == "A" and href and href.startswith("/"):
             return "By.XPATH", f"//a[@href='{href}']"
         
-        # 5. Silver: Semantic Text
+        # 6. Silver: Semantic Text
         if text and len(text) < 50:
             clean_text = text.replace("'", "\\'")
             if tag == "A":
