@@ -65,7 +65,7 @@ python test_script.py
 
 ## Project Structure
 
--   `ai-recorder/`: Source code for the Chrome Extension.
+-   `Recorder/`: Source code for the Chrome Extension.
 -   `generator.py`: Core logic that parses `session.json` and produces Selenium code.
 -   `session.json`: The raw data captured by the recorder.
 -   `test_script.py`: The output executable Selenium script.
